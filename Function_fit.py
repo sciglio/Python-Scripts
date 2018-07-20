@@ -6,6 +6,7 @@ Created on Fri Jul 20 13:54:16 2018
 """
 
 """FIT PROCEDURE IN PYTHON"""
+"""VERSION 0.5"""
 
 #GENERATE RANDOM DATA
 
@@ -36,13 +37,11 @@ plt.plot(x_data, test_func(x_data, p[0]-p_err[0], p[1]-p_err[0]), label='Lower e
 plt.legend(loc='best') #put the legend in the best position
 frame1.set_xticklabels([]) #Remove x-tic labels for the first frame
 plt.grid() #put grid on the plot
-
-#Residual plot
-difference = y_data-test_func(x_data, p[0], p[1])
-y_zeros=np.zeros(50)
-frame2=fig1.add_axes((.1,.1,.8,.2))        
-plt.plot(x_data,difference,'or')
-plt.plot(x_data,y_zeros)
-plt.grid()
+difference = y_data-test_func(x_data, p[0], p[1]) #claculate the residuals
+y_zeros=np.zeros(50) #make a vector for the zero residue line
+frame2=fig1.add_axes((.1,.1,.8,.2)) #create the second frame of the residuals plot
+plt.plot(x_data,difference,'or') #Residual plot
+plt.plot(x_data,y_zeros) #plot the line with zero residue
+plt.grid() #put a grid on the plot
 plt.show() #show the plot
 
